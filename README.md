@@ -6,3 +6,4 @@ The common repository for students in the 2017-2019 term
 - Andras Kemeny @subpadaemon
 
 ## students
+- Balázs Nemoda @balazsn1
