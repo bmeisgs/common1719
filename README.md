@@ -11,3 +11,4 @@ The common repository for students in the 2017-2019 term
 - Attila Toth @thattila
 - Sandor Felber @sandorfelberib
 - Márton Urda @urdamarci
+- Hien Mi @hienmi2018
