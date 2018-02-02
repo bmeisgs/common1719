@@ -9,3 +9,4 @@ The common repository for students in the 2017-2019 term
 - Balázs Nemoda @balazsn1
 - Matt Pelekis @MattPel
 - Attila Toth @thattila
+- Sandor Felber @sandorfelberib
