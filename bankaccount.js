@@ -48,6 +48,9 @@ console.log(BandisAccount);
 /* Matt's account */
 
 /* Mi's account */
+var MisAccount = new bankAccount("Mi");
+MisAccount.changeBalance (77773,"third party","random Number");
+console.log(MisAccount);
 
 /* Sanyi's account */
 
