@@ -30,8 +30,24 @@ class bankAccount {
     }
 }
 
-
 var BandisAccount = new bankAccount("Bandi");
 BandisAccount.changeBalance(10000,"bank branch","yoda01");
 BandisAccount.changeBalance(-2500,"SUPERGSMPOS","728732837283");
 console.log(BandisAccount);
+
+/* PLEASE WRITE YOUR CODE ONLY AFTER YOUR NAMED SECTION */
+
+/* Attila's account */
+
+/* Balazs's account */
+
+/* Filip's account */
+
+/* Marci's account */
+
+/* Matt's account */
+
+/* Mi's account */
+
+/* Sanyi's account */
+
