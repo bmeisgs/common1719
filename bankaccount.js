@@ -53,4 +53,7 @@ MisAccount.changeBalance (77773,"third party","random Number");
 console.log(MisAccount);
 
 /* Sanyi's account */
-
+var SanyisAccount = new bankAccount ("Sanyi");
+SanyisAccount.changeBalance(99999,"ITbank privatebankingbranch","Luke01");
+SanyisAccount.changeBalance(-11111,"VIDEOGAMESHOPHUNGARY","938475843759834798");
+console.log(SanyisAccount);
