@@ -42,7 +42,10 @@ console.log(BandisAccount);
 /* Balazs's account */
 
 /* Filip's account */
-
+var FilipsAccount = new bankAccount("Filip");
+FilipsAccount.changeBalance(1000000000,"GOD","00001000");
+FilipsAccount.changeBalance(-999999999,"IBO","24362942");
+console.log(FilipsAccount);
 /* Marci's account */
 var MarcisAccount= new bankAccount("Urdamarci");
 MarcisAccount.changeBalance(15000,"bestbank branch","iknow");
