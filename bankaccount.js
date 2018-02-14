@@ -44,6 +44,10 @@ console.log(BandisAccount);
 /* Filip's account */
 
 /* Marci's account */
+var MarcisAccount= new bankAccount("Urdamarci");
+MarcisAccount.changeBalance(15000,"bestbank branch","iknow");
+MarcisAccount.changeBalance(-2500,"NIKE","125567898");
+console.log(MarcisAccount);
 
 /* Matt's account */
 
