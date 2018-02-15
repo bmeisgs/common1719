@@ -39,7 +39,7 @@ console.log(BandisAccount);
 
 /* Attila's account */
 var AttilasAccount= new bankAccount("Attial");
-AttilasAccount.changeBalance(10000000,"electronic branch","laptop");
+AttilasAccount.changeBalance(10000000,"electronics branch","laptop");
 AttilasAccount.changeBalance(-200000,"ASUS","23415679");
 console.log(AttilasAccount);
 
