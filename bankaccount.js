@@ -40,7 +40,10 @@ console.log(BandisAccount);
 /* Attila's account */
 
 /* Balazs's account */
-
+var BalazssAccount= new bankAccount("Balazs");
+BalazssAccount.changeBalance(12345,"legendary branch","phone");
+BalazssAccount.changeBalance(-1234,"Samsung","123456789");
+console.log(BalazssAccount);
 /* Filip's account */
 var FilipsAccount = new bankAccount("Filip");
 FilipsAccount.changeBalance(1000000000,"GOD","00001000");
