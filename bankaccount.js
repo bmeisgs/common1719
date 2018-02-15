@@ -44,7 +44,7 @@ AttilasAccount.changeBalance(-200000,"ASUS","23415679");
 console.log(AttilasAccount);
 
 /* Balazs's account */
-var BalazssAccount= new bankAccount("Balazs");
+var BalazssAccount = new bankAccount("Balazs");
 BalazssAccount.changeBalance(12345,"legendary branch","phone");
 BalazssAccount.changeBalance(-1234,"Samsung","123456789");
 console.log(BalazssAccount);
