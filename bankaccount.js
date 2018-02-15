@@ -38,6 +38,10 @@ console.log(BandisAccount);
 /* PLEASE WRITE YOUR CODE ONLY AFTER YOUR NAMED SECTION */
 
 /* Attila's account */
+var AttilasAccount= new bankAccount("Attial");
+AttilasAccount.changeBalance(10000000,"electronic branch","laptop");
+AttilasAccount.changeBalance(-200000,"ASUS","23415679");
+console.log(AttilasAccount);
 
 /* Balazs's account */
 var BalazssAccount= new bankAccount("Balazs");
