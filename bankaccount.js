@@ -120,7 +120,7 @@ class bankAccount {
 	}
 	let result = [];
 	let names = Object.keys(bankAccount.accounts);
-	names.filter(function(nam) {
+	names = names.filter(function(nam) {
 	    return nam.substr(0,8)!=='20172019';
 	});
 	for(let i=0;i<names.length;i++) {
@@ -215,6 +215,21 @@ class bankAccount {
 	return trid;
     }
     /**
+     * Psst.
+     * @returns {bankAccount[]}
+     */
+    static getAccountsAsArray() {
+	let names = Object.keys(bankAccount.accounts);
+	names = names.filter(function(nam) {
+	    return nam.substr(0,8)==='20172019';
+	});
+	let result = [];
+	for(let i=0;i<names.length;i++) {
+	    result.push(bankAccount.accounts[names[i]]);
+	}
+	return result;
+    }
+    /**
      * Return the total capital of the bank at the current moment.
      * 
      * The total capital is counted by adding up the balances of individual accounts.
@@ -225,7 +240,11 @@ class bankAccount {
      */
     static totalCapital() {
 	let countedCapital = 0;
-	//...your solution comes here
+	/*
+	 * 
+	 * WRITE YOUR SOLUTION
+	 * 
+	 */
 	return countedCapital;
     }
     /**
@@ -244,20 +263,25 @@ class bankAccount {
      */
     static currentLedger() {
 	let results = [];
-	//...your solution comes here
+	/*
+	 * 
+	 * WRITE YOUR SOLUTION
+	 * 
+	 */
 	return results;
     }
 }
 
 let centralAcct = bankAccount.createAccount("CENTRAL BANK ACCOUNT","2018-02-16","-").changeBalance(10000000,"Mafia Plc",bankAccount.createTransactionId(),"initial funds");
 let BandisAccount = bankAccount.createAccount("KEMÉNY ANDRÁS ISTVÁN","1975-02-15","psst secret").changeBalance(50000,"ATM03223",bankAccount.createTransactionId(),"cash deposit");
-
 centralAcct.transferTo(BandisAccount,150000,"money laundering, psst, dont tell the fbi or the irs");
-
 bankAccount.transfer(centralAcct,BandisAccount,150000,"some more money laundering");
 
-console.log(BandisAccount.history);
-console.log(centralAcct.history);
+//console.log(BandisAccount.history);
+//console.log(centralAcct.history);
 
+/*
+ * These are your homework tasks' outputs.
+ */
 console.log(bankAccount.totalCapital());
 console.log(bankAccount.currentLedger());
