@@ -36,7 +36,7 @@ function findAccountByName(name) {
     
 }
 
-funciton findAccountByNumber(numb) {
+function findAccountByNumber(numb) {
     
 }
 
