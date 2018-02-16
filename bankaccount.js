@@ -219,6 +219,8 @@ class bankAccount {
      * 
      * The total capital is counted by adding up the balances of individual accounts.
      * 
+     * TODO
+     * 
      * @returns {Number}
      */
     static totalCapital() {
@@ -235,6 +237,8 @@ class bankAccount {
      *    owner: '<ACCOUNT OWNER>',
      *    balance: <CURRENT_BALANCE> },
      *  { accountNumber: ...etc } ]
+     * 
+     * TODO
      * 
      * @returns {Array}
      */
@@ -254,3 +258,6 @@ bankAccount.transfer(centralAcct,BandisAccount,150000,"some more money launderin
 
 console.log(BandisAccount.history);
 console.log(centralAcct.history);
+
+console.log(bankAccount.totalCapital());
+console.log(bankAccount.currentLedger());
