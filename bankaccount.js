@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+var bankAccounts = [];
+
 var lastAccountNumber = 0;
 
 class bankAccount {
@@ -28,6 +30,14 @@ class bankAccount {
 	};
 	this.history.push(historyEntry);
     }
+}
+
+function findAccountByName(name) {
+    
+}
+
+funciton findAccountByNumber(numb) {
+    
 }
 
 var BandisAccount = new bankAccount("Bandi");
