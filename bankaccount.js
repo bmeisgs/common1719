@@ -235,6 +235,9 @@ class bankAccount {
      * The total capital is counted by adding up the balances of individual accounts.
      * 
      * TODO
+     * for(i=0; i<balances.bankAccounts.length; i++)
+     * return balances.bankAccount[i]
+     * consol.log.
      * 
      * @returns {Number}
      */
@@ -258,6 +261,12 @@ class bankAccount {
      *  { accountNumber: ...etc } ]
      * 
      * TODO
+     * for( N=0; N<balances.bankAccount.length; N++)
+     * return.accountNumber
+     * return.owner
+     * return.balance
+     * return.accountNumber
+     * consol.log
      * 
      * @returns {Array}
      */
