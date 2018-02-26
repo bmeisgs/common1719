@@ -236,24 +236,15 @@ class bankAccount {
      * 
      * TODO
      * 
-     * static totalCapital() {
-     * let countedCapital = 0;
-     * for(let i=0; i<balances.bankAccounts.length; ++i)
-     * return balances.bankAccount[i]
-     * return countedCapital;
-     * }
-     * 
-     * 
      * @returns {Number}
      */
     static totalCapital() {
 	let countedCapital = 0;
-      let countedCapital = 0;
-      for(let i=0; i<balances.bankAccounts.length; ++i)
-      return balances.bankAccount[i]
-      return countedCapital;
-      }
-	
+	/*
+	 * 
+	 */
+	return countedCapital;
+    }
     /**
      * Return an array containing all accounts showing their number, their owner's name and the current balance.
      * 
@@ -265,23 +256,16 @@ class bankAccount {
      *  { accountNumber: ...etc } ]
      * 
      * TODO
-     * for( N=0; N<balances.bankAccount.length; N++)
-     * return.accountNumber
-     * return.owner
-     * return.balance
-     * return.accountNumber
-     * consol.log
      * 
      * @returns {Array}
      */
     static currentLedger() {
 	let results = [];
-	for( N=0; N<balances.bankAccount.length; N++)
-     * return.accountNumber
-     * return.owner
-     * return.balance
-     * return.accountNumber
-   
+	/*
+	 * 
+	 */
+	return results;
+    }
 }
 
 let centralAcct = bankAccount.createAccount("CENTRAL BANK ACCOUNT","2018-02-16","-").changeBalance(10000000,"Mafia Plc",bankAccount.createTransactionId(),"initial funds");
