@@ -270,8 +270,24 @@ class bankAccount {
 
 let centralAcct = bankAccount.createAccount("CENTRAL BANK ACCOUNT","2018-02-16","-").changeBalance(10000000,"Mafia Plc",bankAccount.createTransactionId(),"initial funds");
 let BandisAccount = bankAccount.createAccount("KEMÉNY ANDRÁS ISTVÁN","1975-02-15","psst secret").changeBalance(50000,"ATM03223",bankAccount.createTransactionId(),"cash deposit");
+let wowaccount = new bankAccount();
 centralAcct.transferTo(BandisAccount,150000,"money laundering, psst, dont tell the fbi or the irs");
 bankAccount.transfer(centralAcct,BandisAccount,150000,"some more money laundering");
+
+/*
+centralAcct.history
+centralAcct["history"]
+centralAcct[history]
+*/
+
+let history = 'for losers';
+history = function() {
+    return null;
+};
+let whatever = history();
+
+console.log(centralAcct);
+console.log(wowaccount);
 
 //console.log(BandisAccount.history);
 //console.log(centralAcct.history);
