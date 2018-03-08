@@ -240,12 +240,11 @@ class bankAccount {
      */
     static totalCapital() {
 	let countedCapital = 0;
-	/*
-	 * 
-	 * WRITE YOUR SOLUTION
-	 * 
-	 */
-	return countedCapital;
+        let accountArray = bankAccount.getAccountsAsArray()
+for(let i=0; i< accountArray.length; ++i) {
+     countedCapital = accountArray.balance [i]
+}
+    return countedCapital;
     }
     /**
      * Return an array containing all accounts showing their number, their owner's name and the current balance.
