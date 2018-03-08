@@ -9,7 +9,8 @@ const CYCLE_COMPRESSION = 2;
 const CYCLE_IGNITION = 3;
 const CYCLE_EXHAUST = 4;
 const PISTON_BOTTOM = 0;
-const PISTON_TOP = 9;
+const PISTON_TOP = 19;
+const FIRE_SPARKPLUG = PISTON_TOP-1;
 
 class cylinder {
     constructor(which,initPos,initCycle) {
@@ -22,6 +23,19 @@ class cylinder {
 	this.decideNext();
     }
     decideNext() {
+	//these are all the same
+	this.isSparkPlugIgnited = (this.position===FIRE_SPARKPLUG) ? true : false;
+	/*
+	this.isSparkPlugIgnited = (this.position===FIRE_SPARKPLUG);
+	if (this.position===FIRE_SPARKPLUG) {
+	    this.isSparkPlugIgnited = true;
+	} else {
+	    this.isSparkPlugIgnited = false;
+	}
+	*/
+	//
+	//in a duty cycle, this runs:
+	//80 times (PISTON_TOP-PISTON_BOTTOM x 4)
 	if (this.position===PISTON_BOTTOM) {
 	    if (this.cycle===CYCLE_INTAKE) {
 		this.cycle = CYCLE_COMPRESSION;
@@ -32,30 +46,32 @@ class cylinder {
 		this.isExhaustValveOpen = true;
 	    }
 	    this.isIntakeValveOpen = false;
-	    this.isSparkPlugIgnited = false;
+	    //this.isSparkPlugIgnited = false;
 	    this.position = PISTON_BOTTOM+1;
 	}
+	//78 times (PISTON_TOP-PISTON_BOTTOM x 4 - 2 times the above will be true)
 	else if (this.position===PISTON_TOP) {
 	    if (this.cycle===CYCLE_COMPRESSION) {
 		this.cycle = CYCLE_IGNITION;
 		this.isIntakeValveOpen = false;
-		this.isSparkPlugIgnited = true;
+		//this.isSparkPlugIgnited = true;
 	    }
 	    else {
 		this.cycle = CYCLE_INTAKE;
 		this.isIntakeValveOpen = true;
-		this.isSparkPlugIgnited = false;
+		//this.isSparkPlugIgnited = false;
 	    }
 	    this.isExhaustValveOpen = false;
 	    this.position = PISTON_TOP-1;
 	}
+	//76 times
 	else {
 	    if (this.cycle===CYCLE_INTAKE || this.cycle===CYCLE_IGNITION) {
 		--this.position;
 	    } else {
 		++this.position;
 	    }
-	    this.isSparkPlugIgnited = false;
+	    //this.isSparkPlugIgnited = false;
 	}
     }
     visualize() {
