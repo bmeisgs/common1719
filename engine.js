@@ -24,7 +24,8 @@ class cylinder {
     }
     decideNext() {
 	//these are all the same
-	this.isSparkPlugIgnited = (this.position===FIRE_SPARKPLUG) ? true : false;
+	let a = this.isSparkPlugIgnited = 
+	 (this.position===FIRE_SPARKPLUG && this.cycle===CYCLE_COMPRESSION) ? true : false;
 	/*
 	this.isSparkPlugIgnited = (this.position===FIRE_SPARKPLUG);
 	if (this.position===FIRE_SPARKPLUG) {
@@ -32,6 +33,19 @@ class cylinder {
 	} else {
 	    this.isSparkPlugIgnited = false;
 	}
+	
+	a = (b===15) ? ( (c===19) ? 1 : 2 ) : 3;
+	b = 16;
+	c = 19;
+	a = 3
+	
+	b = 15;
+	c = 16;
+	a = 2
+	
+	b = 15;
+	c = 19;
+	a = 1
 	*/
 	//
 	//in a duty cycle, this runs:
