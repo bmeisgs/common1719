@@ -4,6 +4,18 @@
  * and open the template in the editor.
  */
 
+function log10(a) {
+    console.log('hey, executing log10('+a+')');
+    return Math.log10(a);
+}
+function squareRoot(a) {
+    console.log('hey, executing squareRoot('+a+')');
+    return Math.sqrt(a);
+}
+function log10ThenSquareRoot(a) {
+    return squareRoot(log10(a));
+    return b;
+}
 
 let anArray = [];
 let item = 3;
@@ -28,3 +40,13 @@ let whateverPosition = anArray.indexOf("whatevers");
 console.log(whateverPosition);
 
 console.log(anArray);
+
+var square_root = squareRoot;
+//square_root = log10;
+
+squareRoot(25);
+log10(25);
+
+square_root(25);
+
+console.log(log10ThenSquareRoot(25));
