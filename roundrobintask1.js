@@ -14,8 +14,8 @@ function squareRoot(a) {
 }
 function log10ThenSquareRoot(a) {
     return squareRoot(log10(a));
-    return b;
 }
+log10ThenSquareRoot(25);
 
 let anArray = [];
 let item = 3;
