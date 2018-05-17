@@ -46,7 +46,15 @@ var square_root = squareRoot;
 
 squareRoot(25);
 log10(25);
+log10(11);
+Math.ceil(15.2);
+console.log(square_root(log10(15)));
+console.log(square_root(1.2837283782));
+console.log(1.12232132132);
 
-square_root(25);
+item = square_root(25);
+item = 5;
+
+item.dada.spack.whatevs[15];
 
 console.log(log10ThenSquareRoot(25));
