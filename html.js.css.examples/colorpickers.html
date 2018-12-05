@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<style>
+        	#sample {
+            	padding: 30px;
+                background-color: pink;
+            }
+            
+            #selectpicker>option[value="#ff0000"] {
+	background: red;
+}
+
+[selected],[checked] {
+	background: yellow;
+}
+
+[type="color"] {
+	border: 5px solid black;
+}
+
+        </style>
+		<title>Colorpicker</title>
+        <script src="jquery-3.3.1.min.js"></script>
+	
+	</head>
+	
+	<body>
+	
+    <p id="sample" onclick="alert('i am clicked');">This is a sample text</p>
+		<form class="colorchanger">
+        	<input type="color" id="picker" value="#ffc0cb">
+            <br><br>
+            <input list="colors" id="textpicker">
+            <datalist id="colors">
+            	<option value="#00c0c0">teal</option>
+                <option value="#ff0000">red</option>
+                <option value="#808000">brown</option>
+                <option value="#ffff00">yellow</option>
+                <option value="#ff00ff">purple</option>
+                <option value="#000000">black</option>
+                <option value="#00ff00">green</option>
+            	<option value="#80c0ff">lightblue</option>
+            </datalist>
+            <br><br>
+            <select id="selectpicker">
+            	<option value="SELECT ONE" disabled selected>pick a color...</option>
+            	<option value="#80c0ff">lightblue</option>
+                <option value="#add8e6">lightgreen</option>
+                <option value="#ff0000">red</option>
+            </select>
+        </form>
+        
+        <form>
+        	<input type="text" name="brady" value="">
+            <select name="whatever">
+            	<option>one</option>
+            	<option>two</option>
+			</select>
+       </form>
+    <script>
+    /*
+    function changeColor() {
+    	changeAll('picker');
+    }
+    
+    function changeColorByName() {
+    	changeAll('textpicker');
+    }
+    
+    function changeColorByList() {
+    	changeAll('selectpicker');
+    }
+    */
+    
+	/*
+	CSS selectors:
+	
+	"element" => matches <element...></element>
+	"#element" => matches <ANYTHING id="element"></ANYTHING>
+	".element" => matches <ANYTHING class="element"></ANYTHING>
+	"[element]" => matches <ANYTHING element="ANYTHING"></ANYTHING>
+	'[element="value"]' => matches <ANYTHING element="value"></ANYTHING>
+	"element>otherelement" => matches <element><otherelement>...</otherelement></element>
+	"element .otherelement" => matches <element>.... <ANYTHING class="otherelement"></ANYTHING> ...</element>
+	"elem#id.class[attrib]" => matches <elem id="id" class="class" attrib="ANYTHING">...</elem>
+	"elem,.class" => matches BOTH <elem ANYTHING...>...</elem>
+							OR    <ANYTHING class="class">...</ANYTHING>
+	*/
+	
+	/*
+	if elementId contains "someID"
+	$(elementId) => $('someID')
+	$('#'+elementId) => $('#someID')
+	*/
+	
+    function changeAll(elementId) {
+        //let newColor = $('#'+elementId).get(0).value;
+        let newColor = $('#'+elementId).val();
+        let colorSpan = $('#currentColor').get(0);
+        colorSpan.style.backgroundColor = '#000000';
+        colorSpan.style.color = newColor;
+        colorSpan.innerText = newColor;
+        //colorSpan.parentElement.style.backgroundColor = newColor;
+        $('#currentColor').closest('p').get(0).style.backgroundColor = newColor;
+        if (elementId!='picker') {
+			$('#picker').val(newColor);
+			//$('#picker').get(0).value = newColor;
+        }
+    	if (elementId!='textpicker') {
+			$('#textpicker').val(newColor);
+        }
+        if (elementId='selectpicker') {
+			let spickoption = $('#selectpicker>option[value="'+newColor+'"]');
+        	if (spickoption.length!==0) {
+				spickoption.get(0).selected = true;
+            } else {
+				let spicker = $('#selectpicker').get(0);
+    	     	let option = document.createElement('option');
+    			option.value = option.text = newColor;
+    			spicker.add(option);
+                option.selected = true;
+            }
+        }
+    }
+    
+    var hasbeenclicked = false;
+    
+    /*
+	$('input[type="color"]').on('click',function(ev) {
+    	alert('event listener run!');
+    	if (hasbeenclicked===false) {
+    		alert('a color picker input was clicked');
+            $('input[type="color"]').off('click');
+            hasbeenclicked = true;
+        } else {
+            hasbeenclicked = false;
+        }
+    });
+    */
+
+    $('body').on('change',function(ev) {
+    	let itemparent = $(ev.target).closest('form');
+        if (itemparent.hasClass('colorchanger')) {
+        	changeAll(ev.target.id);
+        } else {
+        	alert('this is not a color changer form!');
+        }
+    });
+    
+    $('#sample').get(0).innerHTML = '<div>This is color <span id="currentColor">COLOR</span></div>';
+
+/*
+    //replaces onchange="changeColor();"
+    $('#picker').on('change',function(ev) {
+    	changeColor();
+    });
+    //replaces onchange="changeColorByName();"
+    $('#textpicker').on('change',function(ev) {
+    	changeColorByName();
+    });
+    //replaces onchange="changeColorByList();"
+    $('#selectpicker').on('change',function(ev) {
+    	changeColorByList();
+    });
+*/
+    
+    </script>
+    
+	</body>
+	
+</html>

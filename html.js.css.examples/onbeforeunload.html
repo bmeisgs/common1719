@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<form id="formOne">
+	<textarea name="the_textbox">no change mister?</textarea>
+	<br>
+	<label><input type="checkbox" name="a_checkbox" value="checkme"> check me</label>
+	<br>
+	<input type="password" name="a_password"><br><br>
+	<input type="button" class="formsaver button" value="save">
+	<a href="http://google.com" class="formsaver link">[save]</a>
+	<img src="tenor.gif" class="formsaver image">
+</form>
+<hr>
+<form id="formTwo">
+	<input type="text" name="plaf" value="azurro">
+	<br>
+	<input type="button" class="formsaver" value="save">
+</form>
+<hr>
+<p class="image">This is some text that tries to disguise itself as an image</p>
+<script>
+/* this will be an associate array, ie. a map of key-value pairs where keys 
+	are form IDs and values are true if the form contains unsaved changes orphans
+	false if not */
+hasUnsavedChanges = {};
+/* set the state of the form in hasUnsavedChanges which contains the HTMLElement
+	"elem" to changeState which is either true or false.
+	it does it by finding the closest ancestor FORM element relative to "elem"
+	and uses its ID to identify the form itself. */
+function setFormChangedState(elem,changeState) {
+	let formEl = $(elem).closest('FORM');
+	let formId = formEl.get(0).id;
+	hasUnsavedChanges[formId] = changeState;
+}
+
+
+function saveFormData(elem) {
+	let formEl = $(elem).closest('FORM');
+	let formValues = formEl.serializeArray();
+	console.log(formValues);
+	console.log("do some AJAX magic");
+	let formId = formEl.get(0).id;
+	hasUnsavedChanges[formId] = false;
+}
+/* capture all "change" events on the entire webpage, then make sure that the
+	form containing the HTMLElement that triggered the "change" event is marked
+	as "dirty" (containing unsaved changes) in hasUnsavedChanges */
+$(document).on("change",function(evt) {
+	console.log("something has changed");
+	let evtelem = evt.target;
+	setFormChangedState(evtelem,true);
+});
+/* capture all "keypress" events on the entire webpage that happen in an INPUT
+	or TEXTAREA element, then mark the form containing that element as "dirty"
+	(see above). we are listening to "keypress" events because "change" events
+	only occur on textual input elements once you "leave" them (they are
+	defocused, "blurred") */
+$(document).on('keypress',function(e) {
+	console.log("something has changed: "+e.target.tagName);
+	if (e.target.tagName==='TEXTAREA' || e.target.tagName==='INPUT') {
+		setFormChangedState(e.target,true);
+	}
+});
+/* capture all "click" events on the entire webpage, but only deal with those
+	which came from an element that has the class "formsaver". if such a click
+	occurs then find the form containing the clicked element, and change its
+	"dirty" status to "clean", ie. no unsaved changes. */
+$(document).on('click',function(e) {
+	if ($(e.target).hasClass('formsaver')) {
+		e.preventDefault();
+		saveFormData(e.target);
+	}
+	if ($(e.target).hasClass('image')) {
+		console.log("an image was clicked");
+	}
+});
+/* set an event listener to the "beforeunload" event on the window. this event
+	is triggered when the user wants to leave the page they are at at the
+	moment (this includes reloading the page as well). if the event handler
+	for this event returns an empty string or the event itself is cancelled
+	by calling the preventDefault() method on the event object, then the page
+	will pop a confirmation window saying you have unsaved changes on this
+	webpage and whether you really want to leave or not.
+	
+	popping it all the time is annoying and deters proper functionality, so we
+	should only try to block the user from navigating away if and only if any
+	of the forms on the page are "dirty", ie contain unsaved changes. this is
+	accomplished by checking all forms we know about (the hasUnsavedChanges
+	assoc array) and if any are marked as dirty, then pop the confirmation. */
+window.addEventListener('beforeunload', function (e) {
+	let anyChanges = false;
+	let formsWeKnowAbout = Object.keys(hasUnsavedChanges);
+	for(let i=0;i<formsWeKnowAbout.length;i++) {
+		if (hasUnsavedChanges[formsWeKnowAbout[i]]) {
+			anyChanges = true;
+		}
+	}
+	if (anyChanges) {
+	  // Cancel the event as stated by the standard.
+	  e.preventDefault();
+	  // Chrome requires returnValue to be set.
+	  e.returnValue = '';
+	}
+});
+</script>
+</body>
+</html>
