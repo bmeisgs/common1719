@@ -1,0 +1,2 @@
+onchange event listener instead of "save changes" button
+register this thing to each form individually so it doesnt affect the others

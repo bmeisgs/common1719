@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<style>
+        	#sample {
+            	padding: 30px;
+                background-color: pink;
+            }
+        </style>
+		<title>Colorpicker</title>
+	
+	</head>
+	
+	<body>
+	
+    <p id="sample">This is a sample text</p>
+		<form>
+        	<input type="color" id="picker" value="#ffc0cb" onchange="changeColor();">
+            <br><br>
+            <input list="colors" id="textpicker" onchange="changeColorByName();">
+            <datalist id="colors">
+            	<option value="#00c0c0">teal</option>
+                <option value="#ff0000">red</option>
+                <option value="#808000">brown</option>
+                <option value="#ffff00">yellow</option>
+                <option value="#ff00ff">purple</option>
+                <option value="#000000">black</option>
+                <option value="#00ff00">green</option>
+            	<option value="#80c0ff">lightblue</option>
+            </datalist>
+            <br><br>
+            <select id="selectpicker" onchange="changeColorByList();">
+            	<option value="" disabled selected>pick a color...</option>
+            	<option value="#80c0ff">lightblue</option>
+                <option value="#add8e6">lightgreen</option>
+                <option value="#ff0000">red</option>
+            </select>
+        </form>
+	
+    <script>
+    function changeColor() {
+    	let pickerElement = document.getElementById('picker');
+        let newColor = pickerElement.value;
+        let targetElement = document.getElementById('sample');
+        targetElement.style.backgroundColor = newColor;
+		
+		let otherPickerElement = document.getElementById('textpicker');
+        otherPickerElement.value = newColor;
+		
+		let otherPickerElementB = document.getElementById('selectpicker');
+        otherPickerElementB.value = newColor;
+    }
+    
+    function changeColorByName() {
+    	let pickerElement = document.getElementById('textpicker');
+        let newColor = pickerElement.value;
+        let targetElement = document.getElementById('sample');
+        targetElement.style.backgroundColor = newColor;
+		
+    	let otherPickerElement = document.getElementById('picker');
+        otherPickerElement.value = newColor;
+		
+		let otherPickerElementB = document.getElementById('selectpicker');
+        otherPickerElementB.value = newColor;
+    }
+    
+    function changeColorByList() {
+    	let pickerElement = document.getElementById('selectpicker');
+        let newColor = pickerElement.value;
+        let targetElement = document.getElementById('sample');
+        targetElement.style.backgroundColor = newColor;
+		
+    	let otherPickerElement = document.getElementById('textpicker');
+        otherPickerElement.value = newColor;
+		
+		let otherPickerElementB = document.getElementById('picker');
+        otherPickerElementB.value = newColor;
+    }
+	
+    </script>
+    
+	</body>
+	
+</html>
